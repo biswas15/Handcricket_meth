@@ -1,0 +1,94 @@
+#hand cricket
+import random
+plruns=0
+cruns=0
+b=120
+bdone=0
+r=[1,2,3,4,5,6]
+c=['heads','tails']
+d=["batting","bowling"]
+toss=random.choice(c)
+ctoss=""
+ptoss=input("heads or tails\n")
+if ptoss==toss:
+    print("its",toss)
+    print("You won the toss")
+    p= input("batting or bowling\n")
+    if p== "batting":
+        while bdone<b:
+            runs=int(input('Enter the run: '))
+            comp=random.choice(r)
+            print("The computer plays",comp)
+            if runs>6:
+                print("invalid")
+                exit()
+            else:
+                if runs==comp:
+                    print("You are out")
+                    exit()
+                elif runs != comp:
+                    plruns= plruns+runs
+                print("your run is",plruns)
+                bdone=bdone+1        
+    elif p== "bowling":
+        while bdone<b:
+            compr=random.choice(r)
+            runs=compr
+            pbowl=int(input("Enter the bowl: "))
+            print("The computer plays",runs)
+            if runs>6:
+                print("invalid")
+                exit()
+            else:
+                if runs==pbowl:
+                    print("Computer is out")
+                    exit()
+                elif runs != pbowl:
+                    cruns= cruns+runs
+                print("Computer's run is",cruns)
+                bdone=bdone+1   
+    else:
+        print("invalid")
+        exit()
+elif ptoss!=toss:
+    if ptoss not in c:
+        print("invalid")
+        exit()
+    else:
+        print("its",toss)
+        print("batting or bowling")
+        ctoss= random.choice(d)
+        print("The computer chooses: ",ctoss)
+        if ctoss == "batting":
+            while bdone<b:
+                compr=random.choice(r)
+                pbowl=int(input("Enter the bowl: "))
+                runs=compr
+                print("The computer plays: ",runs)
+                if runs>6:
+                    print("invalid")
+                    exit()
+                else:
+                    if runs==pbowl:
+                        print("Computer is out")
+                        exit()
+                    elif runs != pbowl:
+                        cruns= cruns+runs
+                        print("Computer's run is",cruns)
+                        bdone=bdone+1  
+        elif ctoss == "bowling":
+             while bdone<b:
+                runs=int(input('Enter the run: '))
+                comp=random.choice(r)
+                print("The computer plays",comp)
+                if runs>6:
+                    print("invalid")
+                    exit()
+                else:
+                    if runs==comp:
+                        print("You are out")
+                        exit()
+                    elif runs != comp:
+                        plruns= plruns+runs
+                        print("your run is",plruns)
+                        bdone=bdone+1     
